@@ -1,0 +1,109 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  
+
+  <link rel="icon" type="image/png" href="{% static "logos/logo.png" %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/c.css' %}">
+
+  <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+    <div class="container">
+        <nav id="topNav" class="navbar navbar-expand-md navbar-light  text-white">
+            <div class="container-fluid">
+              <div class="">
+                <a class="navbar-brand"  href="{% url 'home' %}">
+                  <img src="{% static "logos/logob.png" %}" width="120" height="120" class="d-inline-block align-top" alt="Ahmad's Logo">
+                </a>
+              </div>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="">
+                  <ul class="navbar-nav text-center ">
+                    <li class="nav-item">
+                      <a class="nav-link " href="{% url 'home' %}" >Home</a>
+                    </li>
+                    <li  class="nav-item">
+                      <a class="nav-link " href="{% url 'home' %}#Services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                    </li>
+                    <li  class="nav-item">
+                      <a class="nav-link " href="{% url 'about' %}">About</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                      <li class="nav-item d-md-none d-lg-none">
+                        <a id="Dashboard" role="button" href="{% url 'business_list' %}" class="btn btn-light">Dashboard</a>
+                      </li>
+                      <li class="nav-item text-blue  d-md-none d-lg-none">
+                        <a id="Dashboard" role="button"  href="{% url 'logout' %}" class="btn">Logout</a>
+                      </li>
+                      {% else %}
+                      <li class="nav-item p-2 d-md-none  d-lg-none">
+                        <a id="LogIn" role="button" href="{% url 'login' %}" class="btn btn-light">Log In</a>
+                      </li>
+                    {% endif %}
+                  </ul>
+                  </div>
+              </div>
+              {% if user.is_authenticated %}
+                  <div class="p-2 d-none d-lg-block d-xl-block d-md-block  ">
+                     <a id="Dashboard" role="button" href="{% url 'logout' %}" class="btn">Logout</a>
+                  </div>
+                  <div class="p-2 d-none d-lg-block d-xl-block d-md-block  ">
+                      <a id="Dashboard" role="button" href="{% url 'business_list' %}" class="btn btn-light">Dashboard</a>
+                  </div>
+
+
+              {% else %}
+                    <div class="d-none d-lg-block d-xl-block d-md-block align-items-center   justify-content-right ">
+                      <a id="Dashboard" role="button"  href="{% url 'login' %}" class="btn btn-light">Log In</a>
+                    </div>
+              {% endif %}
+                
+            </div>
+          </nav>
+
+        {% block content %}
+    
+        {% endblock %}
+    </div>
+    <footer>
+      <div class="container p-4"></div>
+       
+      <div class="d-blue  ">
+        <img src="{% static 'logos/logo3.png' %}" height="100px" width="100px" class="rounded mx-auto d-block" alt="...">
+      </div>
+      
+      <div class="text-center d-blue  p-3">
+        © 2023 Copyright:
+        <a class="d-blue" href="#">Ahmad Adrah</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+  
+  </html>

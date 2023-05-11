@@ -1,0 +1,170 @@
+{% extends 'business/base1.html' %}
+{% load static %}
+
+
+{% block title %}
+ Home 
+{% endblock %}
+
+{% block content %}
+
+<div class="container ">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="4000">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        
+        <div class="carousel-inner rounded">
+            <div class="carousel-item active bg-image bg-image1 ">
+                <div class="container rounded-top d-flex align-items-center justify-content-center h-100" >
+                    <div class="d-flex flex-column  align-items-center ">
+                        <div class=""><div class="h4 text-center">أعمال ساعدني</div></div>
+                        <div class=""><div class="lead text-center">نعمل في كل منزل و كأنه منزلنا</div></div>
+                        <div class="p-2">  <div class="lead pt-2"><a href="{% url 'contact' %}" class="btn btn-primary"> تواصل معنا</a></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item bg-image bg-image2  ">
+                <div class="container d-flex align-items-center justify-content-center h-100" >
+                    <div class="d-flex flex-column  align-items-center ">
+                        <div class=""><div class="h4 text-center">أعمال ساعدني </div></div>
+                        <div class=""><div class="lead text-center">أعلى جودة و أفضل الأسعار</div></div>
+                        <div class="p-2">  <div class="lead pt-2"><a href="{% url 'contact' %}" class="btn btn-primary"> تواصل معنا</a></div></div>
+                    </div>
+                </div>
+            </div>
+        
+
+            <div class="carousel-item bg-image bg-image3  ">
+                <div class="container d-flex align-items-center justify-content-center h-100" >
+                    <div class="d-flex flex-column  align-items-center ">
+                        <div class=""><div class="h4 text-center">أعمال ساعدني</div></div>
+                        <div class=""><div class="lead text-center ">نقدم خدمات من ذوي خبرة و بأعلى جودة</div></div>
+                        <div class="p-2">  <div class="lead pt-2"><a href="{% url 'contact' %}" class="btn btn-primary"> تواصل معنا</a></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="mt-5 container d-flex align-items-center justify-content-center">
+        <div class="row">
+        <div class="col ml-2 pl-2"> 
+            <h1 style="display: inline-block;">Our</h1>
+            <h1 style="color:#00096b; display: inline-block;">Services</h1></div>
+        </div>
+    </div>
+
+    <h2 id="my-bookmark"></h2>
+
+    <div id="Services" class="container mb-5 mt-5">
+        <div class="row">
+           <div class="col-lg-6 col-md-6 mb-4">
+                <div class="card ">
+                    <a class="" data-toggle="collapse" href="#decor_b" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+                    <div class="card">
+                        <img class="card-img-top " src="{% static 'business/decor23.jpg'%}" alt="Card image cap">
+                        <div class="card-body">
+                        <p class="card-text text-center">أعمال الديكور</p>
+                        </div>
+                    </div>
+                    </a>
+                    <div class="collapse multi-collapse" id="decor_b">
+                        <div class="card card-body">
+                            <ul class="list-group">
+                                {% for decor in decors %}
+                                <li class="list-group-item text-right">{{ decor.name }}</li>
+                                {% endfor %}
+                              </ul>
+                        </div>
+                    </div>
+                </div>
+          </div>
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="card">
+                <a class="" data-toggle="collapse" href="#plumbing" role="button" aria-expanded="false" aria-controls="plumbing">
+                    <div class="card" >
+                        <img class="card-img-top" src="{% static 'business/plumbing.jpg'%}" alt="Card image cap">
+                        <div class="card-body">
+                        <p class="card-text text-center">أعمال السباكة</p>
+                        </div>
+                    </div>
+                    </a>
+                    <div class="collapse multi-collapse" id="plumbing">
+                        <div class="card card-body">
+                            <ul class="list-group">
+                                {% for plumbing in plumbings %}
+                                <li class="list-group-item text-right">{{ plumbing.name }}</li>
+                                {% endfor %}
+                              </ul>
+                        </div>
+                    </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="card">
+                <a class="" data-toggle="collapse" href="#elec" role="button" aria-expanded="false" aria-controls="elec">
+                    <div class="card">
+                        <img class="card-img-top" src="{% static 'business/elec.jpg' %}" alt="Card image cap">
+                        <div class="card-body">
+                        <p class="card-text text-center"> الكهربائيات</p>
+                        </div>
+                    </div>
+                    </a>
+                    <div class="collapse multi-collapse" id="elec">
+                        <div class="card card-body">
+                            <ul class="list-group">
+                                {% for elec in elecs %}
+                                <li class="list-group-item text-right">{{ elec.name }}</li>
+                                {% endfor %}
+                              </ul>
+                        </div>
+                    </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="card">
+                <a class="" data-toggle="collapse" href="#other" role="button" aria-expanded="false" aria-controls="other">
+                    <div class="card">
+                        <img class="card-img-top" src="{% static 'business/other3.jpg' %}" alt="Card image cap">
+                        <div class="card-body">
+                        <p class="card-text text-center">أعمال أخرى</p>
+                        </div>
+                    </div>
+                    </a>
+                    <div class="collapse multi-collapse" id="other">
+                        <div class="card card-body">
+                            <ul class="list-group">
+                                {% for other in others %}
+                                <li class="list-group-item text-right">{{ other.name }}</li>
+                                {% endfor %}
+                              </ul>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+
+      
+    
+</div>
+
+   
+  
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
