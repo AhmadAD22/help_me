@@ -1,4 +1,4 @@
-{% extends './business/base_fixed_footer.html' %}
+{% extends './base_fixed_footer.html' %}
 {% load static %}
 
 
@@ -17,7 +17,7 @@
 
                 <div class="d-flex flex-column border border-dark">
     <div class="p-2"><h1 class="text-center">حذف عمل </h1></div>
-      <div class="p-2"><h4 class="text-right">هل أنت متأكد من حذف: {{ object.name }} </h4></div>
+      <div class="p-2"><h4 class="text-right">هل أنت متأكد من حذف: {{ business.name }} </h4></div>
       <div class="p-2  d-flex justify-content-center "> 
         <form method="post">
           {% csrf_token %}

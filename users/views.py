@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm
+from django.contrib.auth import logout
 
-def login_view(request):
+def login_user(request):
     if request.method == 'POST':
         form = LoginForm(request, request.POST)
         if form.is_valid():
@@ -14,4 +15,10 @@ def login_view(request):
                 return redirect('dashboard')
     else:
         form = LoginForm()
-    return render(request, 'users/login.html', {'form': form})
+    return render(request, 'auth/login.html', {'form': form})
+
+
+
+def logout_user(request):
+    logout(request)
+    return redirect('home')

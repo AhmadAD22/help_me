@@ -1,12 +1,15 @@
-{% extends './business/base_fixed_footer.html' %}
-{% load static %}
+{% extends './base_fixed_footer.html' %}
 {% load bootstrap4 %}
+{% load static %}
+
 
 {% block title %}
- Edit 
+ Add 
 {% endblock %}
 
+
 {% block content %}
+
 <div class=" ">
   <img src="{% static 'logos/logob2.png' %}" height="100px" width="100px" class="rounded mx-auto d-block" alt="...">
 </div>
@@ -14,7 +17,7 @@
             <div class="container  d-flex justify-content-center align-items-center" dir="rtl">
 
                 <div class="d-flex flex-column border border-dark">
-                    <div class="p-2"><h2 class="text-center">تعديل العمل</h2></div>
+                    <div class="p-2"><h2 class="text-center">إضافة عمل</h2></div>
                     <div class="p-2">    <form method="post"  class="text-right">
                         {% csrf_token %}
                         {% bootstrap_form form %}

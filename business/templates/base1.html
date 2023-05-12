@@ -15,7 +15,7 @@
   
 
   <link rel="icon" type="image/png" href="{% static "logos/logo.png" %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'css/c.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 
   <title>{% block title %}{% endblock %}</title>
 </head>
@@ -52,7 +52,7 @@
                         <a id="Dashboard" role="button" href="{% url 'business_list' %}" class="btn btn-light">Dashboard</a>
                       </li>
                       <li class="nav-item text-blue  d-md-none d-lg-none">
-                        <a id="Dashboard" role="button"  href="{% url 'logout' %}" class="btn">Logout</a>
+                        <a id="Dashboard" role="button"  href="{% url 'logout' %}" class="text-blue">Logout</a>
                       </li>
                       {% else %}
                       <li class="nav-item p-2 d-md-none  d-lg-none">
